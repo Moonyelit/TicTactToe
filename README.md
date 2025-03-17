@@ -51,5 +51,5 @@ Pour en savoir plus sur React.js, consultez la documentation officielle : [React
 
 ## Auteur 👨‍💻
 
-Ce projet a été réalisé par [Votre Nom].
+Ce projet a été réalisé par Moonye.
 
