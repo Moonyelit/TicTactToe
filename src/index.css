@@ -1,107 +1,162 @@
+/* Import d'une police moderne depuis Google Fonts (optionnel) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Réinitialisation de base */
 * {
   box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 20px;
+  margin: 0;
   padding: 0;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: 22px;
-}
-
-h2 {
-  margin-top: 0;
-  font-size: 20px;
-}
-
-h3 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-h4 {
-  margin-top: 0;
-  font-size: 16px;
-}
-
-h5 {
-  margin-top: 0;
-  font-size: 14px;
-}
-
-h6 {
-  margin-top: 0;
-  font-size: 12px;
-}
-
-code {
-  font-size: 1.2em;
-}
-
-ul {
-  padding-inline-start: 20px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
+/* Corps de la page */
 body {
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  /* Dégradé bleu doux en arrière-plan */
+  background: linear-gradient(135deg, #cae0fc 0%, #e3f2fd 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
 }
 
+/* Conteneur principal du jeu */
+.game {
+  display: flex;
+  gap: 20px; /* Espace entre la board et l'historique global */
+  align-items: flex-start;
+}
+
+/* Plateau (Board) */
+.game-board, .board-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  /* Ombre légère */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Lignes du plateau */
+.board-row {
+  display: flex;
+}
+
+/* Cases du morpion */
 .square {
   background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
+  border: 2px solid #333;
+  border-radius: 10px;
+  width: 80px;
+  height: 80px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
   text-align: center;
-  width: 34px;
-  transition: background-color 0.5s ease;
+  line-height: 80px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin: 2px;
+}
+
+.square:hover {
+  background: #bbdefb;
 }
 
 .square.winning {
   background-color: #4caf50;
-  color: white;
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
-.board-row:after {
-  clear: both;
-  content: '';
-  display: table;
-}
-
+/* Statut (Gagnant / Match nul / Prochain joueur) */
 .status {
-  margin-bottom: 10px;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
 }
 
-.draw {
-  color: #ff5722;
+/* Conteneur de l'historique local du Board */
+.history-container {
+  margin-top: 20px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 260px;
+  text-align: left;
 }
 
-.game {
-  display: flex;
-  flex-direction: row;
+.history-container h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
 }
 
+.history-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.history-container li {
+  background: #e3f2fd;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Conteneur des infos (Game) */
 .game-info {
-  margin-left: 20px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Liste de l'historique global (dans Game) */
+.game-info ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.game-info li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Boutons de navigation (dans Game) */
 .game-info button {
-  margin-top: 10px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.game-info button:hover {
+  background: #1565c0;
+  transform: scale(1.05);
+}
+
+.game-info button:active {
+  transform: scale(0.95);
+}
+
+/* Coup en cours (texte) */
+.game-info span {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  margin-top: 5px;
 }
