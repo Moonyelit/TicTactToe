@@ -69,6 +69,12 @@ body {
   padding: 0;
   text-align: center;
   width: 34px;
+  transition: background-color 0.5s ease;
+}
+
+.square.winning {
+  background-color: #4caf50;
+  color: white;
 }
 
 .board-row:after {
@@ -79,7 +85,14 @@ body {
 
 .status {
   margin-bottom: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
 }
+
+.draw {
+  color: #ff5722;
+}
+
 .game {
   display: flex;
   flex-direction: row;
@@ -87,4 +100,8 @@ body {
 
 .game-info {
   margin-left: 20px;
+}
+
+.game-info button {
+  margin-top: 10px;
 }

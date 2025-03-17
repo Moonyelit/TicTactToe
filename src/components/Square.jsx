@@ -1,10 +1,10 @@
 import React from "react";
 
 // Composant fonctionnel Square
-function Square({ value, onSquareClick }) {
+function Square({ value, onSquareClick, isWinning }) {
     return (
       // Bouton représentant une case du jeu
-      <button className="square" onClick={onSquareClick}>
+      <button className={`square ${isWinning ? 'winning' : ''}`} onClick={onSquareClick}>
         {value}
       </button>
     );
